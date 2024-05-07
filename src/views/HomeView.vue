@@ -20,7 +20,7 @@ export default {
   },
   data(){
     return{
-      alfabeto: ['a','b','c','d','e'],
+      alfabeto: ['a','b','c','d'],
       VALID: 'sentença válida:',
       aritimetic:  'operador aritmético',
       sentencaInvalida: 'ERRO => sentença inválida',
@@ -30,20 +30,21 @@ export default {
 
 
       tabelaT:[
-    //     A|  B|  C|  D|  E| Er
-  /* 0*/[ 10, 10,  6,  9, 10, 10 ],
-  /* 1*/[ 10, 10, 10,  9, 10, 10 ],
-  /* 2*/[  3, 10,  0,  7, 10, 10 ],
-  /* 3*/[ 10,  4, 10, 10, 10, 10 ],
-  /* 4*/[  5, 10, 10, 10, 10, 10 ],
-  /* 5*/[ 10,  2, 10, 10, 10, 10 ],
-  /* 6*/[ 10, 10,  0,  7, 10, 10 ],
-  /* 7*/[ 10, 10, 10, 10,  1, 10 ],
-  /* 8*/[ 10, 10, 10,  7, 10, 10 ],
-  /* 9*/[ 10, 10, 10, 10,  8, 10 ],
-  /*10*/[ 10, 10, 10, 10, 10, 10 ],
+      /* | A   B   C   D    FI  */  
+/* 0 */ [ 12, 12, 12,  3 , 12 ],
+/* 1 */ [ 12,  8, 12,  3 , 12 ],
+/* 2 */ [  5,  6, 12,  0 , 12 ],
+/* 3 */ [ 12, 12, 12,  0 , 12 ],
+/* 4 */ [ 12,  6, 12,  0 , 12 ],
+/* 5 */ [  2, 11, 12, 12 , 12 ],
+/* 6 */ [ 12, 12,  7, 12 , 12 ],
+/* 7 */ [ 12,  9, 12, 12 , 12 ],
+/* 8 */ [ 12, 12, 10, 12 , 12 ],
+/* 9 */ [ 12, 12,  4, 12 , 12 ],
+/* 10 */[ 12, 11, 12, 12 , 12 ],
+/* 11 */[ 12, 12,  1, 12 , 12 ],
       ],
-      EF: [1,1,0,0,0,0,0,0,0,0,0],
+      EF: [1,1,0,0,0,0,0,0,0,0,0,0,0],
     };
   },
   methods:{
@@ -52,8 +53,7 @@ export default {
       else if(simbolo == 'b') return 1
       else if(simbolo == 'c') return 2
       else if(simbolo == 'd') return 3
-      else if(simbolo == 'e') return 4
-      else return 5
+      else return 4
     },
     getSentencas: function (token){
       console.log(token)
@@ -115,15 +115,20 @@ export default {
           } else {
             results.value += `${this.sentencaInvalida} ${element}\n`;
           }
-        } else {
-          // console.log('ta no if');
-          // console.log(element);
+        } 
+        else {
+          console.log('ta no if');
+          console.log(element);
 
           for (let i = 0; i < element.length-1; i++) {
             let indice = this.indiceSimbolo(element[i]);
-            estado = this.tabelaT[estado][indice];
+            console.log('estado: ', estado ,indice);
+            if (estado === 12) {
+              break;
+            }
+            estado = this.tabelaT[estado][indice]; //erro aqui
           }
-          console.log(estado);
+          console.log('aaaaaaaaaaaaaaaaaaaa',estado);
           if (this.EF[estado] === 1) {
             
             results.value +=  `${this.VALID} ${element}\n`;
