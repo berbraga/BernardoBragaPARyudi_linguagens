@@ -1,11 +1,18 @@
 <template>
-  <div class="container">
-    <input id="input" placeholder="digite o codigo aqui: " class="Input">
+  <div class="container leftText">
+    <div class="div">
+
+      <p class="zero leftText">digite a sequencia aqui:</p>
+      <textarea id="input" placeholder=" " class="Input"></textarea>
+    </div>
     <div class="boxButton">
       <button @click=" this.clear()">Limpar</button>
       <button @click=" this.main()">Analizar</button>
     </div>
-    <textarea name="results" id="results"></textarea>
+    <div class="div">
+      <p class="zero leftText">Resultado sairá aqui</p>
+      <textarea name="results" id="results" placeholder=" "></textarea>
+    </div>
   </div>
 </template>
 
@@ -163,6 +170,13 @@ export default {
 </script>
 
 <style scoped>
+.zero{
+  padding: 0px !important;
+  margin: 0px !important;
+}
+.leftText{
+  text-align: left;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -171,21 +185,20 @@ export default {
   align-items: center;
   justify-content: center;
 }
-
+.div{
+  width: 100%;
+}
 #results {
   width: 100%;
-  min-height: 400px;
-  background-color: rgb(251, 218, 175);
-  margin-top: 10px;
+  min-height: 200px;
+  background-color: rgb(255, 255, 255);
+  
 }
 
 .Input {
-  width: 400px;
-  height: 50px;
-  border-radius: 20px;
-  border: 2px solid rgb(68, 48, 48);
-  font: rgb(0, 0, 0);
-  background-color: rgb(251, 218, 175);
-  margin-bottom: 10px;
+  width: 100%;
+  min-height: 200px;
+  background-color: rgb(255, 255, 255);
+  
 }
 </style>

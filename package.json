@@ -5,11 +5,13 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "deploy": " npm run build && firebase deploy --only hosting",
     "add-git": "git add .",
     "commit-git": "git commit -m 'enviar git'"
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "firebase": "^10.11.1",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3"
   },

@@ -1,9 +1,14 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div >
+    <nav>
+      <h3>
+        Trabalho de Linguagens Formais e Autômatos
+      </h3>
+      <p>Alunos: <b>Bernardo Braga, Pedro Andre, Eduardo Ryudi</b></p>
+  
+    </nav>
+    <router-view/>
+  </div>
 </template>
 
 <style>
