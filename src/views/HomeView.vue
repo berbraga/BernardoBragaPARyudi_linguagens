@@ -63,7 +63,6 @@ export default {
       else return 4
     },
     getSentencas: function (token){
-      console.log(token)
       let sentencas = [];
       let sentenca = '';
       
@@ -98,22 +97,14 @@ export default {
           let aritmethicSimbol = false;
           let invalidSimbol = false;
 
-          console.log('ta no else');
-          console.log(element);
-
           for (let i = 0; i < element.length; i++) {
-            console.log('bernardo');
-            console.log(this.aritimeticOperators.includes(element[i]));
-
             if (this.aritimeticOperators.includes(element[i])) {
-              console.log('simbulo: ', element[i]);
               aritmethicSimbol = true;
             } else if (element[i] !== ' ') {
               invalidSimbol = true;
               break; 
             }
           }
-          console.log(aritmethicSimbol, invalidSimbol);
 
           if (aritmethicSimbol && !invalidSimbol) {
             results.value += `${this.aritimetic} ${element}\n`;
@@ -124,8 +115,6 @@ export default {
           }
         } 
         else {
-          console.log('ta no if');
-          console.log(element);
 
           for (let i = 0; i < element.length-1; i++) {
             let indice = this.indiceSimbolo(element[i]);
@@ -135,12 +124,14 @@ export default {
             }
             estado = this.tabelaT[estado][indice]; //erro aqui
           }
-          console.log('aaaaaaaaaaaaaaaaaaaa',estado);
           if (this.EF[estado] === 1) {
             
             results.value +=  `${this.VALID} ${element}\n`;
           } else {
-            results.value += `${this.sentencaInvalida} ${element}\n`;
+            if(element !== ' '){
+
+              results.value += `${this.sentencaInvalida} ${element}\n`;
+            }
           }
 
           estado = 2;
