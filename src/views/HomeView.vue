@@ -2,7 +2,7 @@
   <div class="container leftText">
     <div class="div">
 
-      <p class="zero leftText">digite a sequencia aqui:</p>
+      <p class="zero leftText">Digite a sequencia aqui:</p>
       <textarea id="input" placeholder=" " class="Input"></textarea>
     </div>
     <div class="boxButton">
